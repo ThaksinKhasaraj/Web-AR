@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> getCookie </title>
+</head>
+
+
+<body>
+    <h1 id="text"> Test Digimagic By Inn </h1>
+
+    <script>
+        function getCookie() {
+            //CookieSture = " username=inn; firstname=saraj"
+            let CookieNow = document.cookie.split(";");
+            let resultArr = []
+
+            for (let i = 0; i < CookieNow.length; i++) {
+                if (CookieNow[i].charAt(0) == " ") {
+                    let a = CookieNow[i].substring(1);
+                    let resultA = a.split("=")[1];
+                    console.log(a.split("=")[0] + " = " + resultA);
+                    resultArr.push(resultA)
+                } else {
+                    let b = CookieNow[i];
+                    let resultB = b.split("=")[1];
+                    console.log(b.split("=")[0] + " = " + resultB);
+                    resultArr.push(resultB)
+                }
+            }
+            return resultArr
+        }
+
+    </script>
+
+    <div id="container-fluid">
+        <video autoplay="true" id="videoElement">
+        </video>
+    </div>
+
+    <script>
+        var video = document.querySelector("#videoElement");
+
+        if (navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function (stream) {
+                    video.srcObject = stream;
+                })
+                .catch(function (err0r) {
+                    console.log("Something went wrong!");
+                });
+        }
+
+    </script>
+
+</body>
+
+</html>

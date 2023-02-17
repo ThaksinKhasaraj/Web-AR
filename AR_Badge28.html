@@ -1,0 +1,109 @@
+<script>
+    function getCookie() {
+        //CookieSture = " username=inn; firstname=saraj"
+        let CookieNow = document.cookie.split(";");
+        let resultArr = []
+
+        for (let i = 0; i < CookieNow.length; i++) {
+            if (CookieNow[i].charAt(0) == " ") {
+                let a = CookieNow[i].substring(1);
+                let resultA = a.split("=")[1];
+                console.log(a.split("=")[0] + " = " + resultA);
+                resultArr.push(resultA)
+            } else {
+                let b = CookieNow[i];
+                let resultB = b.split("=")[1];
+                console.log(b.split("=")[0] + " = " + resultB);
+                resultArr.push(resultB)
+            }
+        }
+        return resultArr
+    }
+
+</script>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://libs.zappar.com/zappar-aframe/0.3.36/zappar-aframe.js"></script>
+    <!-- Feather - Open source icons: https://feathericons.com -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <title> Test Digimagic by Inn </title>
+</head>
+<style>
+    /* Navigation Bar */
+    .navbar {
+        padding: 10px 10px 10px 0px;
+        background-color: #047178;
+
+    }
+
+    .navbar-brand {
+        font-size: 22px;
+        color: white !important;
+        margin: auto;
+
+    }
+
+    #container {
+        margin: 0px auto;
+        
+        border: 10px #333 solid;
+    }
+
+    #videoElement {
+       
+        background-color: #666;
+    }
+</style>
+</style>
+
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-brand">
+                <span> COLLECT YOUR AR JIGSAW! </span>
+            </div>
+        </div>
+    </nav>
+    <!-- End of Navigation Bar -->
+
+    <div id="container-fluid">
+        <video autoplay="true" id="videoElement">
+        </video>
+    </div>
+
+    <script>
+        var video = document.querySelector("#videoElement");
+
+        if (navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function (stream) {
+                    video.srcObject = stream;
+                })
+                .catch(function (err0r) {
+                    console.log("Something went wrong!");
+                });
+        }
+
+        
+    </script>
+  
+
+
+
+</body>
+
+</html>
